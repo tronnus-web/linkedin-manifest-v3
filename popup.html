@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn Connection Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-container">
+        <div class="logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.5 12C20.5 16.6944 16.6944 20.5 12 20.5C7.30558 20.5 3.5 16.6944 3.5 12C3.5 7.30558 7.30558 3.5 12 3.5C16.6944 3.5 20.5 7.30558 20.5 12Z" stroke="white" stroke-width="1.5"/>
+            <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="white" stroke-width="1.5"/>
+            <path d="M20 12H16" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M8 12H4" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M12 4V8" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M12 16V20" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h1>LinkedIn Connection Pro</h1>
+      </div>
+      <span class="badge pro-badge">PRO</span>
+    </header>
+
+    <!-- Main Tabs -->
+    <div class="tabs-container">
+      <div class="tabs-header">
+        <button class="tab-button active" data-tab="connections">Send Connections</button>
+        <button class="tab-button" data-tab="templates">Templates</button>
+        <button class="tab-button" data-tab="analytics">Analytics</button>
+        <button class="tab-button" data-tab="settings">Settings</button>
+      </div>
+
+      <!-- Connections Tab -->
+      <div class="tab-content active" id="connections-tab">
+        <div class="form-card">
+          <div class="form-group">
+            <label for="profile-links">LinkedIn Profile Links</label>
+            <div class="input-with-icon">
+              <textarea id="profile-links" placeholder="https://www.linkedin.com/in/username1&#10;https://www.linkedin.com/in/username2"></textarea>
+              <button class="icon-button paste-button" title="Paste from clipboard">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 4H18C19.1046 4 20 4.89543 20 6V20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20V6C4 4.89543 4.89543 4 6 4H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M15 2H9C8.44772 2 8 2.44772 8 3V5C8 5.55228 8.44772 6 9 6H15C15.5523 6 16 5.55228 16 5V3C16 2.44772 15.5523 2 15 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <small>Add one profile URL per line</small>
+          </div>
+          
+          <div class="form-group">
+            <div class="label-with-dropdown">
+              <label for="connection-note">Connection Request Note</label>
+              <div class="template-selector">
+                <select id="template-select">
+                  <option value="default">Default Template</option>
+                  <option value="recruiter">Recruiter Template</option>
+                  <option value="sales">Sales Template</option>
+                  <option value="networking">Networking Template</option>
+                  <option value="custom">Custom Template</option>
+                </select>
+              </div>
+            </div>
+            <textarea id="connection-note" placeholder="Hi [Name], I noticed your profile and would like to connect. I work in [Industry] at [Company] and thought we might benefit from networking."></textarea>
+            <small>Personalized notes increase acceptance rates</small>
+          </div>
+          
+          <div class="personalization-container">
+            <div class="personalization-header">
+              <span>Personalization Tags:</span>
+              <button class="toggle-button" id="toggle-personalization">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <div class="personalization-content">
+              <div class="tag-list">
+                <div class="tag" data-tag="[Name]">
+                  <div class="tag-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M4 21V19C4 16.7909 5.79086 15 8 15H16C18.2091 15 20 16.7909 20 19V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <span class="tag-name">Name</span>
+                  <span class="tag-description">First name from profile</span>
+                </div>
+                <div class="tag" data-tag="[Company]">
+                  <div class="tag-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 21H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M5 21V5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M9 8H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M9 13H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <span class="tag-name">Company</span>
+                  <span class="tag-description">Company name if available</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="delay-input">Seconds between requests</label>
+            <div class="range-with-number">
+              <div class="range-container">
+                <input type="range" id="delay-range" min="30" max="300" value="60" step="5">
+                <div class="range-markers">
+                  <span>30s</span>
+                  <span>90s</span>
+                  <span>150s</span>
+                  <span>210s</span>
+                  <span>300s</span>
+                </div>
+              </div>
+              <input type="number" id="delay-input" min="30" max="300" value="60">
+            </div>
+            <small>LinkedIn may limit connection requests if sent too quickly (minimum 30 sec recommended)</small>
+          </div>
+        </div>
+        
+        <div class="actions-container">
+          <div class="main-actions">
+            <button id="start-button" class="button primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4V20M20 12H4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Start Sending Connections
+            </button>
+            <button id="stop-button" class="button secondary" disabled>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 6H18V18H6V6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Stop
+            </button>
+            <button id="reset-button" class="button outline">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 3L16 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 7L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Reset
+            </button>
+          </div>
+        </div>
+        
+        <div class="status-container">
+          <div class="status-card">
+            <div class="status-header">
+              <div class="status-label">Status</div>
+              <div id="status-text" class="status-text">Ready</div>
+            </div>
+            <div class="progress-section">
+              <div class="progress-info">
+                <span id="progress-count">0/0</span>
+                <span id="progress-percentage">0%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div id="progress-bar" class="progress-bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Templates Tab -->
+      <div class="tab-content" id="templates-tab">
+        <div class="templates-container">
+          <div class="templates-header">
+            <h3>Saved Templates</h3>
+            <button id="add-template" class="button small outline">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4V20M20 12H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Add Template
+            </button>
+          </div>
+          
+          <div class="templates-list">
+            <div class="template-card active">
+              <div class="template-header">
+                <h4>Default Template</h4>
+                <div class="template-actions">
+                  <button class="icon-button" title="Edit template">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11 4H4C3.44772 4 3 4.44772 3 5V19C3 19.5523 3.44772 20 4 20H18C18.5523 20 19 19.5523 19 19V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M17.5 2.5C18.3284 1.67157 19.6716 1.67157 20.5 2.5C21.3284 3.32843 21.3284 4.67157 20.5 5.5L12 14L8 15L9 11L17.5 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="template-preview">
+                Hi [Name], I noticed your profile and would like to connect. I work in [Industry] at [Company] and thought we might benefit from networking.
+              </div>
+            </div>
+            
+            <div class="template-card">
+              <div class="template-header">
+                <h4>Recruiter Template</h4>
+                <div class="template-actions">
+                  <button class="icon-button" title="Edit template">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11 4H4C3.44772 4 3 4.44772 3 5V19C3 19.5523 3.44772 20 4 20H18C18.5523 20 19 19.5523 19 19V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M17.5 2.5C18.3284 1.67157 19.6716 1.67157 20.5 2.5C21.3284 3.32843 21.3284 4.67157 20.5 5.5L12 14L8 15L9 11L17.5 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="template-preview">
+                Hi [Name], I'm a recruiter at [Company] specializing in [Industry] roles. I'd love to connect and keep you updated on opportunities that match your expertise.
+              </div>
+            </div>
+            
+            <div class="template-card">
+              <div class="template-header">
+                <h4>Sales Template</h4>
+                <div class="template-actions">
+                  <button class="icon-button" title="Edit template">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11 4H4C3.44772 4 3 4.44772 3 5V19C3 19.5523 3.44772 20 4 20H18C18.5523 20 19 19.5523 19 19V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M17.5 2.5C18.3284 1.67157 19.6716 1.67157 20.5 2.5C21.3284 3.32843 21.3284 4.67157 20.5 5.5L12 14L8 15L9 11L17.5 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="template-preview">
+                Hi [Name], I noticed your work in [Industry] at [Company]. I help professionals like you with [Value Proposition]. Would you be open to connecting?
+              </div>
+            </div>
+            
+            <div class="template-card">
+              <div class="template-header">
+                <h4>Networking Template</h4>
+                <div class="template-actions">
+                  <button class="icon-button" title="Edit template">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11 4H4C3.44772 4 3 4.44772 3 5V19C3 19.5523 3.44772 20 4 20H18C18.5523 20 19 19.5523 19 19V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M17.5 2.5C18.3284 1.67157 19.6716 1.67157 20.5 2.5C21.3284 3.32843 21.3284 4.67157 20.5 5.5L12 14L8 15L9 11L17.5 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="template-preview">
+                Hi [Name], I'm expanding my professional network in the [Industry] space and your profile caught my attention. I'd be happy to connect and share insights.
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Template Editor Modal (hidden by default) -->
+        <div id="template-editor-modal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>Edit Template</h3>
+              <button class="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="template-name">Template Name</label>
+                <input type="text" id="template-name" value="Default Template">
+              </div>
+              <div class="form-group">
+                <label for="template-content">Message Template</label>
+                <textarea id="template-content" rows="6">Hi [Name], I noticed your profile and would like to connect. I work in [Industry] at [Company] and thought we might benefit from networking.</textarea>
+              </div>
+              <div class="available-tags">
+                <div class="tag-pill" data-tag="[Name]">Name</div>
+                <div class="tag-pill" data-tag="[Company]">Company</div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="button outline modal-cancel">Cancel</button>
+              <button class="button primary modal-save">Save Template</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics Tab -->
+      <div class="tab-content" id="analytics-tab">
+        <div class="analytics-container">
+          <div class="analytics-header">
+            <h3>Connection Analytics</h3>
+            <div class="date-filter">
+              <select id="date-range">
+                <option value="7">Last 7 days</option>
+                <option value="30" selected>Last 30 days</option>
+                <option value="90">Last 90 days</option>
+                <option value="all">All time</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="metrics-grid">
+            <div class="metric-card" style="grid-column: span 4;">
+              <div class="metric-value">0</div>
+              <div class="metric-label">Connections Sent</div>
+              <div class="metric-change positive">+0% <span>vs previous</span></div>
+            </div>
+          </div>
+          
+          <div class="chart-container">
+            <div class="chart-header">
+              <h4>Connections Overview</h4>
+              <div class="chart-legend">
+                <div class="legend-item">
+                  <div class="legend-color" style="background-color: #0077B5"></div>
+                  <div class="legend-label">Sent</div>
+                </div>
+              </div>
+            </div>
+            <div class="chart">
+              <canvas id="connections-chart"></canvas>
+            </div>
+          </div>
+          
+          <div class="template-performance-section">
+            <div class="table-container">
+              <div class="table-header">
+                <h4>Template Performance</h4>
+              </div>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Template</th>
+                    <th>Sent</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Template data will be inserted here dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="export-section">
+            <button class="button outline">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3V16M12 16L16 12M12 16L8 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 15V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Export Data
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Settings Tab -->
+      <div class="tab-content" id="settings-tab">
+        <div class="settings-container">
+          <div class="settings-section">
+            <h3>General Settings</h3>
+            
+            <div class="setting-item">
+              <div class="setting-label">
+                <h4>Auto-resume after browser restart</h4>
+                <p>If enabled, automatically resume sending connections after browser restart</p>
+              </div>
+              <div class="setting-control">
+                <label class="toggle">
+                  <input type="checkbox" id="auto-resume" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-label">
+                <h4>Auto-extract profile data</h4>
+                <p>Automatically extract name, company, and other data from LinkedIn profiles</p>
+              </div>
+              <div class="setting-control">
+                <label class="toggle">
+                  <input type="checkbox" id="auto-extract" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-label">
+                <h4>Connection notifications</h4>
+                <p>Show browser notifications when connections are sent</p>
+              </div>
+              <div class="setting-control">
+                <label class="toggle">
+                  <input type="checkbox" id="notifications" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-label">
+                <h4>Dark mode</h4>
+                <p>Use dark color theme for the extension</p>
+              </div>
+              <div class="setting-control">
+                <label class="toggle">
+                  <input type="checkbox" id="dark-mode">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-section">
+            <h3>Advanced Settings</h3>
+            
+            <div class="setting-item">
+              <div class="setting-label">
+                <h4>Connect button detection method</h4>
+                <p>Choose how the extension finds the Connect button on LinkedIn profiles</p>
+              </div>
+              <div class="setting-control">
+                <select id="detection-method">
+                  <option value="auto" selected>Automatic (recommended)</option>
+                  <option value="xpath">XPath (more stable)</option>
+                  <option value="text">Text-based (faster)</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-label">
+                <h4>API key</h4>
+                <p>For Pro users to enable advanced analytics</p>
+              </div>
+              <div class="setting-control">
+                <input type="password" id="api-key" placeholder="Enter API key">
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-label">
+                <h4>Data storage</h4>
+                <p>Control how much connection data is stored locally</p>
+              </div>
+              <div class="setting-control">
+                <select id="data-storage">
+                  <option value="30">Last 30 days</option>
+                  <option value="90" selected>Last 90 days</option>
+                  <option value="365">Last 365 days</option>
+                  <option value="unlimited">Unlimited</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-actions">
+            <button class="button outline">Reset to Defaults</button>
+            <button class="button primary">Save Settings</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="app-footer">
+    <div class="footer-text">Use responsibly and in accordance with LinkedIn's terms of service</div>
+    <div class="footer-version">v2.0.0</div>
+  </footer>
+  
+  <script src="js/chart.min.js"></script>
+  <script src="js/popup.js"></script>
+  <script src="js/analytics.js"></script>
+</body>
+</html>
